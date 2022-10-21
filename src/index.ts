@@ -4,7 +4,7 @@ import { IResponse } from './lib/interfaces/IResponse';
 import { uploadToS3 } from './lib/helpers/uploadToS3';
 import { IAWS } from './lib/interfaces/IAWS';
 
-export default class PDFGenerator {
+class PDFGenerator {
     aws: IAWS;
 
     constructor(aws: IAWS) {
@@ -15,3 +15,5 @@ export default class PDFGenerator {
         return await generateDocument(documentType, transaction, this.aws);
     }
 }
+
+module.exports = PDFGenerator;
