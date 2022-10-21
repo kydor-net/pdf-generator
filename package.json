@@ -1,7 +1,7 @@
 {
-  "name": "workshops-pdf-generator",
+  "name": "workshop-pdfs",
   "version": "1.0.0",
-  "description": "",
+  "description": "NPM package for generating workshops PDFs",
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon ./src/index.ts"
@@ -32,5 +32,8 @@
     "mustache": "^4.2.0",
     "puppeteer": "^19.0.0",
     "puppeteer-core": "^19.0.0"
+  },
+  "publishConfig": {
+    "@kydor-net:registry": "https://npm.pkg.github.com"
   }
 }
