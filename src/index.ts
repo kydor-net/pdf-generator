@@ -16,4 +16,4 @@ class PDFGenerator {
     }
 }
 
-module.exports = PDFGenerator;
+export default PDFGenerator;
