@@ -6,12 +6,12 @@ This packages takes input data in `JSON` format, generates a PDF Buffer, uploads
 ## Usage
 ### Installation
 ```bash
-npm i @kydor-net/workshop-pdf-generator
+npm i workshop-pdfs
 ```
 
 ### Setup
 ```javascript
-const PDFGenerator = require('@kydor-net/workshop-pdf-generator');
+const PDFGenerator = require('workshop-pdfs');
 
 const awsCredentials = {
     accessKeyId: 'AWS_ACCESS_KEY_ID',
