@@ -1,11 +1,11 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { ITransaction } from './interfaces/ITransaction';
 import { IPDFGenerator } from './interfaces/IPDFGenerator';
 import { IResponse } from './interfaces/IResponse';
 import { uploadToS3 } from './helpers/uploadToS3';
-import puppeteer from 'puppeteer-core';
-import Mustache from 'mustache';
-import moment from 'moment';
+import * as puppeteer from 'puppeteer-core';
+import * as Mustache from 'mustache';
+import * as moment from 'moment';
 import calculateTotalPrice from './helpers/calculateTotal';
 import { IAWS } from './interfaces/IAWS';
 
@@ -60,14 +60,13 @@ const generateDocument: IPDFGenerator["generateDocument"] = async (
                 async (pdf: Buffer) => {
                     const fileUrl = await uploadToS3(
                         pdf, transaction.id, documentType, awsConfig
-                        );
-                    await browser.close();
+                        )
+                    await browser.close()
                     return { ok: true, error: null, documentUrl: fileUrl } as IResponse;
                 }
             );
         });
         //
-
         throw new Error('Error generating PDF');
     } catch (error) {
         return { ok: false, error: error, documentUrl: null} as IResponse;

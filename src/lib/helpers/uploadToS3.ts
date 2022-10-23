@@ -1,4 +1,4 @@
-import AWS from 'aws-sdk';
+import * as AWS from 'aws-sdk';
 import { IAWS } from '../interfaces/IAWS';
 
 export async function uploadToS3(

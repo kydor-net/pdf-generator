@@ -53,4 +53,4 @@ var PDFGenerator = /** @class */ (function () {
     };
     return PDFGenerator;
 }());
-module.exports = PDFGenerator;
+exports.default = PDFGenerator;

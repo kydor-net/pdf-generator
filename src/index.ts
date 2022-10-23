@@ -1,7 +1,6 @@
 import generateDocument from './lib/generateDocument';
 import { ITransaction } from './lib/interfaces/ITransaction';
 import { IResponse } from './lib/interfaces/IResponse';
-import { uploadToS3 } from './lib/helpers/uploadToS3';
 import { IAWS } from './lib/interfaces/IAWS';
 
 class PDFGenerator {

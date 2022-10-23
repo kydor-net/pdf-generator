@@ -47,18 +47,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = require("fs");
+var fs = require("fs");
 var uploadToS3_1 = require("./helpers/uploadToS3");
-var puppeteer_core_1 = require("puppeteer-core");
-var mustache_1 = require("mustache");
-var moment_1 = require("moment");
+var puppeteer = require("puppeteer-core");
+var Mustache = require("mustache");
+var moment = require("moment");
 var calculateTotal_1 = require("./helpers/calculateTotal");
 var generateDocument = function (documentType, transaction, awsConfig) { return __awaiter(void 0, void 0, void 0, function () {
     var transactionData_1;
     return __generator(this, function (_a) {
         try {
             // Check if the documentType is valid
-            (!fs_1.default.existsSync("./lib/templates/".concat(documentType, "/index.html"))) ? (function () { throw new Error('Template not found'); }()) : null;
+            (!fs.existsSync("./lib/templates/".concat(documentType, "/index.html"))) ? (function () { throw new Error('Template not found'); }()) : null;
             transactionData_1 = transaction;
             //
             // Verify if the workshop logo exists and if not, use the default one
@@ -69,7 +69,7 @@ var generateDocument = function (documentType, transaction, awsConfig) { return 
             ;
             //
             // Read the index.html template and fill it with the provided transaction data
-            fs_1.default.readFile("./lib/templates/".concat(documentType, "/index.html"), function (err, fileBuffer) { return __awaiter(void 0, void 0, void 0, function () {
+            fs.readFile("./lib/templates/".concat(documentType, "/index.html"), function (err, fileBuffer) { return __awaiter(void 0, void 0, void 0, function () {
                 var totalPrice, browser, page, htmlTemplate, formatedHTML;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
@@ -78,14 +78,14 @@ var generateDocument = function (documentType, transaction, awsConfig) { return 
                                 throw new Error(err.message);
                             }
                             totalPrice = (0, calculateTotal_1.default)(transactionData_1.details);
-                            return [4 /*yield*/, puppeteer_core_1.default.launch({ headless: true })];
+                            return [4 /*yield*/, puppeteer.launch({ headless: true })];
                         case 1:
                             browser = _a.sent();
                             return [4 /*yield*/, browser.newPage()];
                         case 2:
                             page = _a.sent();
                             htmlTemplate = fileBuffer.toString();
-                            formatedHTML = mustache_1.default.render(htmlTemplate, __assign({ date: (0, moment_1.default)().format('D/MM/YYYY'), totalPrice: totalPrice }, transactionData_1));
+                            formatedHTML = Mustache.render(htmlTemplate, __assign({ date: moment().format('D/MM/YYYY'), totalPrice: totalPrice }, transactionData_1));
                             return [4 /*yield*/, page.setContent(formatedHTML)];
                         case 3:
                             _a.sent();
