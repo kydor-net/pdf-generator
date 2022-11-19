@@ -1,7 +1,7 @@
 # PDF Generator
 PDF Generator build for Node, relying on [Puppeteers](https://www.npmjs.com/package/puppeteer) and [Mustache](https://www.npmjs.com/package/mustache) to generate PDFs from HTML templates.
 
-This packages takes input data in `JSON` format, then generates and returns a PDF file Buffer.
+This package receives input data in `JSON` format, then generates and returns a PDF file Buffer.
 
 ## Usage
 ### Installation
